@@ -7,7 +7,7 @@ Easy full text search with Django and PostgreSQL. Sane defaults + auto creation 
 Example
 --------------
 
-Extend your model with the `SearchableModel` class, and use the `SearchableTextField` class to automatically setup full text search:
+Extend your model with the :code:`SearchableModel` class, and use the :code:`SearchableTextField` class to automatically setup full text search:
 
 .. code-block:: python
 
@@ -34,9 +34,9 @@ Then search away via the Blog manager:
     query = ~SearchQuery('superman') & SearchQuery('batman')
     results = Blog.objects.search(query)
 
-`.search` adds a `rank` annotation and automatically filters and sorts the resulting queryset.
+:code:`.search` adds a :code:`rank` annotation and automatically filters and sorts the resulting queryset.
 
-By default, `.search` will search through all `SearchableTextField` fields on the model, but you can specify any subset:
+By default, :code:`.search` will search through all :code:`SearchableTextField` fields on the model, but you can specify any subset:
 
 .. code-block:: python
 
