@@ -9,5 +9,7 @@ Django = ">=2.x"
 
 [dev-packages]
 
+pylint = ">=1.9"
+
 [requires]
 python_version = "3.6"
