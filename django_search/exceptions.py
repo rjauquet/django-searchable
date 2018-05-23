@@ -1,0 +1,2 @@
+class SearchableException(Exception):
+    pass
