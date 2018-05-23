@@ -3,7 +3,7 @@ from django.db import models
 
 from django_search.exceptions import SearchableException
 
-class SearchableField(models.TextField):
+class SearchableTextField(models.TextField):
     pass
 
 class SearchableManager(models.Manager):
