@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 Django = ">=2.x"
+psycopg2-binary = ">=2.7.4"
 
 [dev-packages]
 pylint = ">=1.9"

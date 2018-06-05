@@ -48,4 +48,5 @@ Contributing
 .. code-block:: python
 
     pipenv install
-    pipenv run pytest
+    createuser -s -P test_user  # use 'password'
+    pipenv run ./manage.py test

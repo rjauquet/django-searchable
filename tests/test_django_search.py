@@ -9,5 +9,6 @@ class DjangoSearchModelTests(TestCase):
         test_instance = TestModel.objects.create(
             text='searchable text goes here',
         )
+        test_instance.refresh_from_db()
         self.assertTrue(test_instance.text)
         self.assertTrue(test_instance.text_vector)
