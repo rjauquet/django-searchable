@@ -1,3 +1,4 @@
+from django.apps import AppConfig
 from django.contrib.postgres.indexes import GinIndex
 from django.contrib.postgres.search import SearchQuery, SearchVectorField
 from django.db import models
@@ -7,7 +8,23 @@ from django_search.exceptions import SearchableException
 
 
 class SearchableTextField(models.TextField):
-    pass
+        def contribute_to_class(self, cls, name):
+            if not cls._meta.abstract:
+                vector_field_name = f'{name}_vector'
+
+                # make sure the field doesn't already exist with this name
+                if hasattr(cls, vector_field_name):
+                    raise SearchableException(
+                        'Error trying to create vector field. '
+                        f'Field with name "{vector_field_name}" already exists'
+                    )
+
+                vector_field = SearchVectorField(f'SearchVector storage for {name}', null=True)
+                vector_field.contribute_to_class(cls, vector_field_name)
+                # add index
+                cls._meta.indexes.append(GinIndex(fields=[vector_field_name]))
+
+            super(SearchableTextField, self).contribute_to_class(cls, name)
 
 
 class SearchableManager(models.Manager):
@@ -25,32 +42,3 @@ class SearchableModel(models.Model):
 
     class Meta:
         abstract = True
-
-    def ready(self):
-        class_prepared.connect(inject_vector_fields)
-
-
-def inject_vector_fields(sender, **kwargs):
-
-    if SearchableModel in sender.__bases__:
-
-        added_field_names = []
-
-        for field in sender._meta.get_fields():
-            if isinstance(field, SearchableTextField):
-                vector_field_name = f'{field.name}_vector'
-
-                # make sure the field doesn't already exist with this name
-                if vector_field_name in sender._meta.get_fields():
-                    raise SearchableException(
-                        'Error trying to create vector field. '
-                        f'Field with name "{vector_field_name}" already exists'
-                    )
-
-                vector_field = SearchVectorField(f'SearchVector storage for {field.name}', null=True)
-                vector_field.contribute_to_class(sender, vector_field_name)
-                added_field_names.append(vector_field_name)
-
-        # add indexes
-        if added_field_names:
-            sender._meta.indexes.append(GinIndex(fields=added_field_names))

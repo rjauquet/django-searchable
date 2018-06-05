@@ -6,7 +6,8 @@ class DjangoSearchModelTests(TestCase):
 
     def test_init(self):
 
-        test = TestModel.objects.create(
+        test_instance = TestModel.objects.create(
             text='searchable text goes here',
         )
-
+        self.assertTrue(test_instance.text)
+        self.assertTrue(test_instance.text_vector)
