@@ -8,6 +8,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.sessions',
     'django.contrib.staticfiles',
+    'django_extensions',
     'django_search',
     'tests',
 ]
