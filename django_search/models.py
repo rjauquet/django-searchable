@@ -26,6 +26,9 @@ class SearchableModel(models.Model):
     class Meta:
         abstract = True
 
+    def ready(self):
+        class_prepared.connect(inject_vector_fields)
+
 
 def inject_vector_fields(sender, **kwargs):
 
@@ -51,7 +54,3 @@ def inject_vector_fields(sender, **kwargs):
         # add indexes
         if added_field_names:
             sender._meta.indexes.append(GinIndex(fields=added_field_names))
-
-
-
-class_prepared.connect(inject_vector_fields)
