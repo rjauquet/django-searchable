@@ -45,7 +45,7 @@ By default, :code:`.search` will search through all :code:`SearchableTextField` 
 Contributing
 --------------
 
-.. code-block:: python
+.. code-block:: bash
 
     pipenv install --dev
     createuser -s -P test_user  # use 'password'
