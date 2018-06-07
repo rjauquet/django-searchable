@@ -13,6 +13,6 @@ setuptools.setup(
     author_email='rjauquet@gmail.com',
     url='https://github.com/rjauquet/django-searchable',
     download_url='https://github.com/rjauquet/django-searchable/archive/0.1.tar.gz',
-    keywords=['search', 'fts'],
+    keywords=['search', 'searchable', 'fts'],
     classifiers=[],
 )

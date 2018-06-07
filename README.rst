@@ -1,4 +1,4 @@
-Django Search
+Django Searchable
 ==============
 
 Easy full text search with Django and PostgreSQL. Sane defaults + auto creation of vector fields, indexes, and database triggers.
