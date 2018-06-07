@@ -12,7 +12,7 @@ Extend your model with the :code:`SearchableModel` class, and use the :code:`Sea
 .. code-block:: python
 
     from django.db.models import TextField
-    from django_search.models import SearchableModel, SearchableTextField
+    from django_searchable.models import SearchableModel, SearchableTextField
 
     class Blog(SearchableModel):
         author_name = TextField() # will NOT have FTS setup automatically
@@ -47,6 +47,6 @@ Contributing
 
 .. code-block:: python
 
-    pipenv install
+    pipenv install --dev
     createuser -s -P test_user  # use 'password'
     pipenv run ./manage.py test

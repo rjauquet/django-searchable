@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from django_search.models import SearchableModel, SearchableTextField
+from django_searchable.models import SearchableModel, SearchableTextField
 from tests.models import TestModel
 
 

@@ -1,4 +1,4 @@
-from django_search.models import SearchableModel, SearchableTextField
+from django_searchable.models import SearchableModel, SearchableTextField
 
 class TestModel(SearchableModel):
 

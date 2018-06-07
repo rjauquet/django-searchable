@@ -9,7 +9,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'django_extensions',
-    'django_search',
+    'django_searchable',
     'tests',
 ]
 
@@ -22,7 +22,7 @@ MIDDLEWARE_CLASSES = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'django_search_test',
+        'NAME': 'django_searchable_test',
         'USER': 'test_user',
         'PASSWORD': 'password',
         'HOST': 'localhost',

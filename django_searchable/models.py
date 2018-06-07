@@ -11,7 +11,7 @@ from django.db import models
 from django.db.models.signals import class_prepared, post_init, post_save
 from django.dispatch import receiver
 
-from django_search.exceptions import SearchableException
+from django_searchable.exceptions import SearchableException
 
 
 class SearchableTextField(models.TextField):
