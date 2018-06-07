@@ -12,6 +12,7 @@ pylint = ">=1.9"
 pytest = ">=3.5"
 ipdb = ">=0.11"
 django-extensions = ">=2.0.7"
+twine = "*"
 
 [requires]
 python_version = "3.6"
