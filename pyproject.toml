@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "django-searchable"
+version = "0.1.0"
+description = ""
+authors = ["Rob Ervin Jauquet <rob.jauquet@zapier.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+Django = ">=2.1.6"
+psycopg2-binary = ">=2.7.4"
+
+[tool.poetry.dev-dependencies]
+pylint = ">=1.9"
+pytest = ">=3.5"
+ipdb = ">=0.11"
+django-extensions = ">=2.0.7"
+twine = "*"
+readme-renderer = "*"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
